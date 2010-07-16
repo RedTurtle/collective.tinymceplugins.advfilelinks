@@ -3,8 +3,6 @@
 from zope.interface import implements
 from zope.component import adapts
 from zope.component import getUtility
-from z3c.json import interfaces
-
 from Products.TinyMCE.interfaces.utility import ITinyMCE
 from Products.TinyMCE.adapters.interfaces.JSONDetails import IJSONDetails
 from Products.CMFCore.interfaces._content import IContentish, IFolderish
@@ -12,6 +10,11 @@ from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_inner
 from elementtree import HTMLTreeBuilder
+
+try:
+    import json
+except:
+    import simplejson as json
 
 class JSONDetails(object):
     """Return details of the current object in JSON"""
@@ -61,5 +64,6 @@ class JSONDetails(object):
         results['size'] = self.context.getObjSize()
         results['extension'] = extension
 
-        jsonWriter = getUtility(interfaces.IJSONWriter)
-        return jsonWriter.write(results)
+#        jsonWriter = getUtility(interfaces.IJSONWriter)
+#        return jsonWriter.write(results)
+        return json.dumps(results)
