@@ -15,7 +15,8 @@
         />
 
    <cmf:registerDirectory
-       name="tinymce_plugin_linktofile"/>
+       name="tinymce_plugin_linktofile"
+       recursive="True"/>
 
   <genericsetup:registerProfile
       name="default"
