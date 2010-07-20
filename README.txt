@@ -5,12 +5,12 @@ This is a plugin for `TinyMCE`__ editor for Plone.
 
 __ http://plone.org/products/tinymce/
 
-It will replace in the less obtrusive way the standard *plonelink* plugin, replacing it with a version that
+It will replace in the less obtrusive way the standard *plonelink* plugin, providing a version that
 handle in a different way links to File contents.
 
-When the link is not internal or not to a link to file, nothing change.
+When the link is not internal or not to a file, nothing change.
 
-When you link a file inside the Plone site, instead of obtain this in your XHTML::
+When you link a file inside the Plone site, instead of obtain this in your XHTML...::
 
     <a class="internal-link" href="./my-pdf">Download the document</a>
 
@@ -22,29 +22,32 @@ When you link a file inside the Plone site, instead of obtain this in your XHTML
 The plugin also add a CSS to your Plone site that:
 
 * Add the image icon based on file's mimetype, on the left of the link (need IE 7 or better)
-* After the linked text will be added a `generated-CSS text`__, with the same content you find in the
+* After the linked text will be added a `text generated with CSS`__, with the same content you find in the
   *title*, put in bracket (need IE 8 or better).
   IE users with old version still get's some additional information thanks to the *title* attribute. 
 
 __ http://www.w3.org/TR/CSS2/generate.html
 
-.. table:: How the plugin looks like (on a good browser)
+.. figure:: http://keul.it/images/plone/collective.tinymceplugins.advfilelinks-0.0.1-01.png
+   :alt: Screenshot of what you see on Firefox      
 
-   +------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
-   |                                                                                                      |                                                                                                 |
-   |   .. figure:: http://keul.it/images/plone/collective.tinymceplugins.advfilelinks-0.0.1-01.png        |   .. figure:: http://keul.it/images/plone/collective.tinymceplugins.advfilelinks-0.0.1-02.png   |
-   |      :scale: 50                                                                                      |      :scale: 50                                                                                 |
-   |      :alt: Screenshot of what you see on Firefox                                                     |      :alt: Screenshot of what you see in the TinyMCE XHML generated                             |
-   |                                                                                                      |                                                                                                 |
-   |      How this looks like (on Firefox)                                                                |      What you will find inside TinyMCE                                                          |
-   |                                                                                                      |                                                                                                 |
-   +------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+   How this looks like (on Firefox)      
 
+.. figure:: http://keul.it/images/plone/collective.tinymceplugins.advfilelinks-0.0.1-02.png
+   :alt: Screenshot of what you see in the TinyMCE XHML generated
+     
+   What you will find inside TinyMCE
 
 Dependencies
 ------------
 
 This product has been tested with Plone 3.2 and TinyMCE 1.1rc8.
+
+TODO
+====
+
+A good uninstall GS step.
+Right now you must manually restore your default TinyMCE configuration.
 
 Credits
 =======

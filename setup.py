@@ -26,6 +26,7 @@ setup(name='collective.tinymceplugins.advfilelinks',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'Products.TinyMCE',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
