@@ -130,7 +130,7 @@ function init() {
 function checkSearch(e) {
     if (tinyMCEPopup.editor.settings.livesearch || e.keyCode == 13) {
         getFolderListing(tinyMCEPopup.editor.settings.navigation_root_url || tinyMCEPopup.editor.settings.portal_url,
-		                 'tinymce-jsonlinkablesearch');
+                         'tinymce-jsonlinkablesearch');
     }
 }
 
@@ -548,15 +548,10 @@ function insertAction() {
         tinyMCEPopup.execCommand("CreateLink", false, "#mce_temp_url#", {skip_undo : 1});
 
         elementArray = tinymce.grep(inst.dom.select("a"), function(n) {return inst.dom.getAttrib(n, 'href') == '#mce_temp_url#';});
-		for (i=0; i<elementArray.length; i++)
+        for (i=0; i<elementArray.length; i++)
             setAllAttribs(elm = elementArray[i]);
     } else
         setAllAttribs(elm);
-
-	var fsize = document.getElementById('tiny_filesize').innerHTML;
-	var fext = document.getElementById('tiny_extension').innerHTML;
-    if (fsize || fext)
-		elm.innerHTML = elm.innerHTML + " (" + fext + (fext?", "+fsize:fsize) + ")";
 
     // Don't move caret if selection was image
     if (elm && (elm.childNodes.length != 1 || elm.firstChild.nodeName != 'IMG')) {
@@ -590,20 +585,16 @@ function setAllAttribs(elm) {
     }
 
     if (document.getElementById('tiny_filetype').innerHTML)
-	    setAttrib(elm, 'type', document.getElementById('tiny_filetype').innerHTML, 2);
-
-	/*
-    if (document.getElementById('tiny_filesize').innerHTML) 
-	    setAttrib(elm, 'title', formAdvancedObj.title.value +
-		    (formAdvancedObj.title.value?" ":"") +
-			"(" +document.getElementById('tiny_filesize').innerHTML + ")", 2);
-	*/
+        setAttrib(elm, 'type', document.getElementById('tiny_filetype').innerHTML, 2);
+        setAttrib(elm, 'type', document.getElementById('tiny_filetype').innerHTML, 2);
 
     var dom = tinyMCEPopup.editor.dom;
     dom.removeClass(elm, 'internal-link');
+	dom.removeClass(elm, 'internal-link-tofile');
     dom.removeClass(elm, 'external-link');
     dom.removeClass(elm, 'anchor-link');
     dom.removeClass(elm, 'mail-link');
+	setAttrib(elm, 'title', '', 2);
 
     if (isVisible('external_panel')) {
         dom.addClass(elm, 'external-link');
@@ -613,6 +604,14 @@ function setAllAttribs(elm) {
         dom.addClass(elm, 'mail-link');
     } else {
         dom.addClass(elm, 'internal-link');
+        var fsize = document.getElementById('tiny_filesize').innerHTML;
+        var fext = document.getElementById('tiny_extension').innerHTML;
+		var ftitle = "";
+        if (fsize || fext)
+            ftitle = fext + (fext?", "+fsize:fsize);
+
+        if (document.getElementById('tiny_filetype').innerHTML) dom.addClass(elm, 'internal-link-tofile');
+		if (ftitle) setAttrib(elm, 'title', ftitle, 2); 
     }
 
     // Refresh in old MSIE
@@ -716,14 +715,14 @@ function setDetails(path, pageanchor) {
                 document.getElementById ('internal_details_description').innerHTML = '<img src="' + data.thumb + '" border="0" />';
             }
             
-			// Init file infors
-			if (data.content_type) document.getElementById ('tiny_filetype').innerHTML = data.content_type;
-			else document.getElementById ('tiny_filetype').innerHTML = '';
-			if (data.size) document.getElementById ('tiny_filesize').innerHTML = data.size;
-			else document.getElementById ('tiny_filesize').innerHTML = '';
-			if (data.extension) document.getElementById ('tiny_extension').innerHTML = data.extension;
-			else document.getElementById ('tiny_extension').innerHTML = '';	
-			
+            // Init file infors
+            if (data.content_type) document.getElementById ('tiny_filetype').innerHTML = data.content_type;
+            else document.getElementById ('tiny_filetype').innerHTML = '';
+            if (data.size) document.getElementById ('tiny_filesize').innerHTML = data.size;
+            else document.getElementById ('tiny_filesize').innerHTML = '';
+            if (data.extension) document.getElementById ('tiny_extension').innerHTML = data.extension;
+            else document.getElementById ('tiny_extension').innerHTML = '';
+
             if (data.anchors.length == 0) {
                 document.getElementById ('pageanchorcontainer').style.display = 'none';
                 document.getElementById ('pageanchorlabel').style.display = 'none';

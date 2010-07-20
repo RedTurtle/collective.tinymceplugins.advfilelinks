@@ -88,10 +88,10 @@
           </div>
           <div id="tiny_filetype"></div>
           <div id="tiny_filesize"></div>	
-          <div id="tiny_extension" style="display:none"></div>
+          <div id="tiny_extension"></div>
         </fieldset>
 
-        <fieldset id="external_panel" class="subPanel column" style="display:none;">
+        <fieldset id="external_panel" class="subPanel column">
           <legend i18n:domain="plone.tinymce" i18n:translate="">External link</legend>
           <div class="field">
             <label for="externalurl" i18n:translate="plonelink_dlg_url"></label>
@@ -114,7 +114,7 @@
           </div>
         </fieldset>
 
-        <fieldset id="mail_panel" class="subPanel column" style="display:none;">
+        <fieldset id="mail_panel" class="subPanel column">
           <legend i18n:domain="plone.tinymce" i18n:translate="">Mail</legend>
           <div class="field">
             <label for="mailaddress" i18n:domain="plone.tinymce" i18n:translate="">E-mail</label>
@@ -131,7 +131,7 @@
           </div>
         </fieldset>
 
-        <fieldset id="anchors_panel" class="subPanel column" style="display:none;">
+        <fieldset id="anchors_panel" class="subPanel column">
           <legend i18n:domain="plone.tinymce" i18n:translate="">Link to anchor</legend>
           <div class="field">
             <label i18n:translate="plonelink_dlg_anchor_names"></label>

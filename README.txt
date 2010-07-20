@@ -3,29 +3,48 @@ Introduction
 
 This is a plugin for `TinyMCE`__ editor for Plone.
 
-It will replace is the less obtrusive way the standard *plonelink* plugin, replacing it with a version that
+__ http://plone.org/products/tinymce/
+
+It will replace in the less obtrusive way the standard *plonelink* plugin, replacing it with a version that
 handle in a different way links to File contents.
 
-When the link is not internal and not to file, nothing change.
+When the link is not internal or not to a link to file, nothing change.
 
 When you link a file inside the Plone site, instead of obtain this in your XHTML::
 
     <a class="internal-link" href="./my-pdf">Download the document</a>
 
-...you'll get this::
+...you'll get this...::
 
-    <a class="internal-link" href="./my-pdf" type="application/pdf">Download the document (pdf, 146.2 kB)</a>
+    <a class="internal-link internal-link-tofile" href="./my-pdf"
+       type="application/pdf" title="pdf, 146.2 kB">Download the document</a>
 
-Warning: TinyMCE versions
--------------------------
+The plugin also add a CSS to your Plone site that:
 
-This product has been tested on:
+* Add the image icon based on file's mimetype, on the left of the link (need IE 7 or better)
+* After the linked text will be added a `generated-CSS text`__, with the same content you find in the
+  *title*, put in bracket (need IE 8 or better).
+  IE users with old version still get's some additional information thanks to the *title* attribute. 
 
- * TinyMCE 1.1rc4
- * TinyMCE 1.1rc8
+__ http://www.w3.org/TR/CSS2/generate.html
 
-For maintain the compatibility with 1.1rc4 version, the plugin is using a "less recent" version of
-the *plonelink* UI.
+.. table:: How the plugin looks like (on a good browser)
+
+   +------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+   |                                                                                                      |                                                                                                 |
+   |   .. figure:: http://keul.it/images/plone/collective.tinymceplugins.advfilelinks-0.0.1-01.png        |   .. figure:: http://keul.it/images/plone/collective.tinymceplugins.advfilelinks-0.0.1-02.png   |
+   |      :scale: 50                                                                                      |      :scale: 50                                                                                 |
+   |      :alt: Screenshot of what you see on Firefox                                                     |      :alt: Screenshot of what you see in the TinyMCE XHML generated                             |
+   |                                                                                                      |                                                                                                 |
+   |      How this looks like (on Firefox)                                                                |      What you will find inside TinyMCE                                                          |
+   |                                                                                                      |                                                                                                 |
+   +------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+
+
+Dependencies
+------------
+
+This product has been tested with Plone 3.2 and TinyMCE 1.1rc8.
 
 Credits
 =======

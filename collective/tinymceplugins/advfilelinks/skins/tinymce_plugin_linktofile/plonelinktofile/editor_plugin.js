@@ -46,7 +46,7 @@
                 longname : 'Plone link to file',
                 author : 'keul',
                 authorurl : 'http://www.redturtle.net/',
-                infourl : 'http://plone.org/products/tinymce',
+                infourl : 'http://plone.org/products/collective.tinymceplugins.advfilelinks',
                 version : tinymce.majorVersion + "." + tinymce.minorVersion
             };
         }
