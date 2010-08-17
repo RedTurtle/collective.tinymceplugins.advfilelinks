@@ -46,8 +46,8 @@ This product has been tested with Plone 3.2 and TinyMCE 1.1rc8.
 TODO
 ====
 
-A good uninstall GS step.
-Right now you must manually restore your default TinyMCE configuration.
+* A good uninstall GS step. Right now you must manually restore your default TinyMCE configuration.
+* More control on the plugin popup on what the user can show when creating the link
 
 Credits
 =======
@@ -65,4 +65,11 @@ This product was developed by RedTurtle Technology team.
 .. image:: http://www.redturtle.net/redturtle_banner.png
    :alt: RedTurtle Technology Site
    :target: http://www.redturtle.net/
+
+Thanks to the `University of Ferrara`__ for providing CSS rules to be more compatible with additional
+mimetypes.
+
+__ http://www.unife.it/
+
+
 

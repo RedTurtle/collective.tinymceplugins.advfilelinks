@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.0.1'
+version = '0.1.0'
 
 setup(name='collective.tinymceplugins.advfilelinks',
       version=version,
@@ -10,7 +10,7 @@ setup(name='collective.tinymceplugins.advfilelinks',
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Framework :: Plone",
         "Programming Language :: Python",
         "Programming Language :: JavaScript",
@@ -18,7 +18,7 @@ setup(name='collective.tinymceplugins.advfilelinks',
       keywords='tinymce plugin file link',
       author='RedTurtle Technology',
       author_email='sviluppoplone@redturtle.net',
-      url='http://svn.plone.org/svn/collective/collective.tinymceplugins.advfilelinks/',
+      url='http://plone.org/products/collective.tinymceplugins.advfilelinks',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective', 'collective.tinymceplugins'],
