@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1.0 (Unreleased)
+0.1.0 (2011-10-13)
 ------------------
 
 * *University of Ferrara* provided some more CSS rules for better integration with MS Office files [keul]
