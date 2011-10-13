@@ -41,7 +41,7 @@ __ http://www.w3.org/TR/CSS2/generate.html
 Dependencies
 ------------
 
-This product has been tested with Plone 3.2 and TinyMCE 1.1rc8.
+This product has been tested with Plone 3.3.5 and TinyMCE 1.1.11.
 
 TODO
 ====
