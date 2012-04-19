@@ -6,7 +6,7 @@
     i18n_domain="collective.tinymceplugins.advfilelinks">
 
   <five:registerPackage package="." initialize=".initialize" />
-  
+
   <include package=".browser" />
   <adapter
         for="Products.ATContentTypes.interface.IATFile"

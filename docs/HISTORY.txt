@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.2.0 (Unreleased)
+------------------
+
+* now require ``z3c.jbot`` because to fix a bug related to a broken context menu [keul]
+* added a product layer [keul]
+
 0.1.0 (2011-10-13)
 ------------------
 
