@@ -5,7 +5,7 @@ version = '0.1.0'
 
 setup(name='collective.tinymceplugins.advfilelinks',
       version=version,
-      description="An advanced TinyMCE plugin for handling links to files",
+      description="An advanced Plone TinyMCE plugin for handling links to files",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
