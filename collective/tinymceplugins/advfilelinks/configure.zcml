@@ -14,10 +14,6 @@
         factory=".adapters.JSONDetails"
         />
 
-   <cmf:registerDirectory
-       name="tinymce_plugin_linktofile"
-       recursive="True"/>
-
   <genericsetup:registerProfile
       name="default"
       title="TinyMCE alternative links to files plugin"
@@ -25,5 +21,7 @@
       description="Installs the collective.tinymceplugins.advfilelinks package"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+  <include file="upgrades.zcml" />
 
 </configure>

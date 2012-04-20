@@ -3,7 +3,7 @@
  <resourcetypes purge="False">
   <customplugins purge="True">
     <element value="ploneimage"/>
-    <element value="plonelinktofile"/>
+    <element value="plonelink"/>
   </customplugins>
  </resourcetypes>
 </object>

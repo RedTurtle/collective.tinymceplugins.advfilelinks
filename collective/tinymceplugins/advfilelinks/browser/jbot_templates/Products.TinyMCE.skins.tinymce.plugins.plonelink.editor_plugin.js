@@ -45,7 +45,7 @@
             return {
                 longname : 'Plone link to file',
                 author : 'keul',
-                authorurl : 'http://www.redturtle.net/',
+                authorurl : 'http://www.redturtle.it/',
                 infourl : 'http://plone.org/products/collective.tinymceplugins.advfilelinks',
                 version : tinymce.majorVersion + "." + tinymce.minorVersion
             };
@@ -53,5 +53,5 @@
     });
 
     // Register plugin
-    tinymce.PluginManager.add('plonelinktofile', tinymce.plugins.PloneLinkPlugin);
+    tinymce.PluginManager.add('plonelink', tinymce.plugins.PloneLinkPlugin);
 })();

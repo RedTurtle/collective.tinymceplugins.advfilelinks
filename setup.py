@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1.0'
+version = '0.2.0'
 
 setup(name='collective.tinymceplugins.advfilelinks',
       version=version,
@@ -13,6 +13,8 @@ setup(name='collective.tinymceplugins.advfilelinks',
         "Development Status :: 4 - Beta",
         "Framework :: Plone",
         "Framework :: Plone :: 3.3",
+        "Framework :: Plone :: 4.0",
+        "Framework :: Plone :: 4.1",
         "Programming Language :: Python",
         "Programming Language :: JavaScript",
         ],

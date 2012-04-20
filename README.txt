@@ -21,10 +21,10 @@ When you link a file inside the Plone site, instead of obtain this in your XHTML
 
 The plugin also add a CSS to your Plone site that:
 
-* Add the image icon based on file's mimetype, on the left of the link (need IE 7 or better)
+* Add the image icon based on file's mimetype, on the left of the link (if on IE, need IE 7 or better)
 * After the linked text will be added a `text generated with CSS`__, with the same content you find in the
   *title*, put in bracket (need IE 8 or better).
-  IE users with old version still get's some additional information thanks to the *title* attribute. 
+  IE users with old versions still get's some additional information thanks to the *title* attribute. 
 
 __ http://www.w3.org/TR/CSS2/generate.html
 
@@ -49,7 +49,6 @@ This product has been tested with:
 TODO
 ====
 
-* A good uninstall GS step. Right now you must manually restore your default TinyMCE configuration.
 * More control on the plugin popup on what the user can show when creating the link
 
 Credits
@@ -65,9 +64,9 @@ Authors
 
 This product was developed by RedTurtle Technology team.
 
-.. image:: http://www.redturtle.net/redturtle_banner.png
+.. image:: http://www.redturtle.it/redturtle_banner.png
    :alt: RedTurtle Technology Site
-   :target: http://www.redturtle.net/
+   :target: http://www.redturtle.it/
 
 Thanks to the `University of Ferrara`__ for providing CSS rules to be more compatible with additional
 mimetypes.
