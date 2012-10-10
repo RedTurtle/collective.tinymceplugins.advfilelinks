@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0.0 (unreleased)
+------------------
+
+* Fixed Plone 4 compatibility icons drawing in popup template [cekk]
+
 0.2.1 (2012-04-20)
 ------------------
 
