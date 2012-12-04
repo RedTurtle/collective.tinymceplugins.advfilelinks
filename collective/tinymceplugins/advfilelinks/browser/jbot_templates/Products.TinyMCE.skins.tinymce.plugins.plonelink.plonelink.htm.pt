@@ -86,9 +86,18 @@
               </select>
             </div>
           </div>
-          <div id="tiny_filetype"></div>
-          <div id="tiny_filesize"></div>
-          <div id="tiny_extension"></div>
+          <div id="info_tiny_filetype">
+          	<strong i18n:domain="collective.tinymceplugins.advfilelinks" i18n:translate="">File type</strong>
+			<span id="tiny_filetype"></span>
+          </div>
+          <div id="info_tiny_filesize">
+          	<strong i18n:domain="collective.tinymceplugins.advfilelinks" i18n:translate="">Size</strong>
+			<span id="tiny_filesize"></span>
+          </div>
+          <div id="info_tiny_extension">
+          	<strong i18n:domain="collective.tinymceplugins.advfilelinks" i18n:translate="">File extension</strong>
+			<span id="tiny_extension"></span>
+          </div>
         </fieldset>
 
         <fieldset id="external_panel" class="subPanel column">
@@ -280,6 +289,21 @@
             <input type="text" name="title" id="title" value="" size="30" />
           </div>
         </div>
+
+        <div class="field" i18n:domain="collective.tinymceplugins.advfilelinks">
+          <label i18n:translate="">Link format</label>
+          <div class="widget">
+            <select id="link_format" name="link_format">
+              <option value="download" i18n:translate="plonelink_download">Link to download content</option>
+              <option value="view" i18n:translate="plonelink_preview">Link to content's preview</option>
+            </select>
+            <div style="display:none" id="tiny_suffixes">
+            	<span id="tiny_download_suffix"></span>
+             	<span id="tiny_view_suffix"></span>
+            </div>
+          </div>
+        </div>
+		
       </form>
     </fieldset>
 

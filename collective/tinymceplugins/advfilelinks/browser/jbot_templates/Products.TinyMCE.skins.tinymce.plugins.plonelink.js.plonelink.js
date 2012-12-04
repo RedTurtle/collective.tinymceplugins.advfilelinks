@@ -87,7 +87,13 @@ function init() {
                 current_pageanchor = href.split('#')[1];
                 href = href.split('#')[0];
             }
+						
             if (href.indexOf('resolveuid') != -1) {
+
+				var re = /.*\/?resolveuid\/\w+(\/\w+)/g;
+				var suffix = href.replace(re, "$1");
+				href = href.replace(suffix, '');
+
                 current_uid = href.split('resolveuid/')[1];
                 tinymce.util.XHR.send({
                     url : tinyMCEPopup.editor.settings.portal_url + '/portal_tinymce/tinymce-getpathbyuid?uid=' + current_uid,
@@ -95,7 +101,7 @@ function init() {
                     success : function(text) {
                         current_url = getAbsoluteUrl(tinyMCEPopup.editor.settings.document_base_url, text);
                         current_link = href;
-                        getFolderListing(getParentUrl(current_url), 'tinymce-jsonlinkablefolderlisting');
+                        getFolderListing(getParentUrl(current_url), 'tinymce-jsonlinkablefolderlisting', suffix);
                     }
                 });
             } else {
@@ -572,6 +578,13 @@ function setAllAttribs(elm) {
     var formButtonsObj = document.forms[3];
 
     var href = formGeneralObj.href.value;
+
+	var linkFormat = document.getElementById('link_format').options[document.getElementById('link_format').selectedIndex].value;
+	if (linkFormat=='download' && document.getElementById('tiny_download_suffix').innerHTML) {
+		href += document.getElementById('tiny_download_suffix').innerHTML;
+	} else if (linkFormat=='view' && document.getElementById('tiny_view_suffix').innerHTML) {
+		href += document.getElementById('tiny_view_suffix').innerHTML;
+	}
     var target = getSelectValue(formAdvancedObj, 'targetlist');
 
     if (target == 'popup') {
@@ -584,17 +597,17 @@ function setAllAttribs(elm) {
         setAttrib(elm, 'target', target, 2);
     }
 
-    if (document.getElementById('tiny_filetype').innerHTML)
+    if (document.getElementById('tiny_filetype').innerHTML) {
         setAttrib(elm, 'type', document.getElementById('tiny_filetype').innerHTML, 2);
-        setAttrib(elm, 'type', document.getElementById('tiny_filetype').innerHTML, 2);
+    }
 
     var dom = tinyMCEPopup.editor.dom;
     dom.removeClass(elm, 'internal-link');
-	dom.removeClass(elm, 'internal-link-tofile');
+    dom.removeClass(elm, 'internal-link-tofile');
     dom.removeClass(elm, 'external-link');
     dom.removeClass(elm, 'anchor-link');
     dom.removeClass(elm, 'mail-link');
-	setAttrib(elm, 'title', '', 2);
+    setAttrib(elm, 'title', '', 2);
 
     if (isVisible('external_panel')) {
         dom.addClass(elm, 'external-link');
@@ -606,12 +619,12 @@ function setAllAttribs(elm) {
         dom.addClass(elm, 'internal-link');
         var fsize = document.getElementById('tiny_filesize').innerHTML;
         var fext = document.getElementById('tiny_extension').innerHTML;
-		var ftitle = "";
+        var ftitle = "";
         if (fsize || fext)
             ftitle = fext + (fext?", "+fsize:fsize);
 
         if (document.getElementById('tiny_filetype').innerHTML) dom.addClass(elm, 'internal-link-tofile');
-		if (ftitle) setAttrib(elm, 'title', ftitle, 2); 
+        if (ftitle) setAttrib(elm, 'title', ftitle, 2); 
     }
 
     // Refresh in old MSIE
@@ -699,7 +712,7 @@ function displayPanel(elm_id) {
     document.getElementById ('upload_panel').style.display = elm_id == 'upload_panel' ? 'block' : 'none';
 }
 
-function setDetails(path, pageanchor) {
+function setDetails(path, pageanchor, suffix) {
     // Sends a low level Ajax request
     tinymce.util.XHR.send({
         url : path + '/tinymce-jsondetails',
@@ -714,14 +727,40 @@ function setDetails(path, pageanchor) {
             } else {
                 document.getElementById ('internal_details_description').innerHTML = '<img src="' + data.thumb + '" border="0" />';
             }
-            
-            // Init file infors
-            if (data.content_type) document.getElementById ('tiny_filetype').innerHTML = data.content_type;
-            else document.getElementById ('tiny_filetype').innerHTML = '';
-            if (data.size) document.getElementById ('tiny_filesize').innerHTML = data.size;
-            else document.getElementById ('tiny_filesize').innerHTML = '';
-            if (data.extension) document.getElementById ('tiny_extension').innerHTML = data.extension;
-            else document.getElementById ('tiny_extension').innerHTML = '';
+
+            // Init file infos
+            if (data.content_type) {
+                document.getElementById('tiny_filetype').innerHTML = data.content_type;
+            } else {
+                document.getElementById('tiny_filetype').innerHTML = '';
+            }
+            if (data.size) {
+                document.getElementById ('tiny_filesize').innerHTML = data.size;
+            } else {
+                document.getElementById ('tiny_filesize').innerHTML = '';
+            }
+            if (data.extension) {
+                document.getElementById('tiny_extension').innerHTML = data.extension;
+            }
+            else {
+                document.getElementById('tiny_extension').innerHTML = '';
+            }
+            if (data.suffixes.download) {
+                document.getElementById('tiny_download_suffix').innerHTML = data.suffixes.download;
+            }
+            else {
+                document.getElementById('tiny_download_suffix').innerHTML = '';
+            }
+            if (data.suffixes.view) {
+                document.getElementById('tiny_view_suffix').innerHTML = data.suffixes.view;
+            }
+            else {
+                document.getElementById('tiny_view_suffix').innerHTML = '';
+            }
+			// link to file suffix
+			if (suffix) {
+				alert(suffix)
+			}
 
             if (data.anchors.length == 0) {
                 document.getElementById ('pageanchorcontainer').style.display = 'none';
@@ -756,7 +795,7 @@ function getCurrentFolderListing() {
     getFolderListing(tinyMCEPopup.editor.settings.document_base_url, 'tinymce-jsonlinkablefolderlisting'); 
 }
 
-function getFolderListing(path, method) {
+function getFolderListing(path, method, suffix) {
     // Sends a low level Ajax request
     tinymce.util.XHR.send({
         url : path + '/' + method,
@@ -837,7 +876,7 @@ function getFolderListing(path, method) {
                         type : 'GET',
                         success : function(text) {
                             current_url = getAbsoluteUrl(tinyMCEPopup.editor.settings.document_base_url, text);
-                            setDetails(current_url, current_pageanchor);
+                            setDetails(current_url, current_pageanchor, suffix);
                         }
                     });
                 } else {
@@ -856,6 +895,10 @@ function uploadOk(ok_msg) {
 
 function uploadError(error_msg) {
     alert (error_msg);
+}
+
+function selectSuffix(suffix) {
+	alert(suffix);
 }
 
 // While loading

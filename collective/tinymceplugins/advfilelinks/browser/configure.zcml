@@ -10,6 +10,7 @@
         directory="jbot_templates" />
 
     <browser:resource
+	    layer=".interfaces.ITinyMCEPluginLinkToFileLayer"
         name="tiny_filetypes.css"
         file="tiny_filetypes.css"
         />

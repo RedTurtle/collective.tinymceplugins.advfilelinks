@@ -1,11 +1,14 @@
 Changelog
 =========
 
-1.0.1 (unreleased)
+1.1.0 (unreleased)
 ------------------
 
-* Fixed link plugin (removed ``region-content`` id)
-  [keul]
+* Fixed plugin (removed ``region-content`` id) [keul]
+* Added label for additional info in file popup [keul]
+* i18n support (and italian translation provided) [keul]
+* Now uninstall cleanly [keul]
+* Added link format inside advanced settings [keul]
 
 1.0.0 (2012-10-10)
 ------------------
