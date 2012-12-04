@@ -9,6 +9,8 @@ Changelog
 * i18n support (and italian translation provided) [keul]
 * Now uninstall cleanly [keul]
 * Added link format inside advanced settings [keul]
+* Now supporting new advanced and pluggable option: "*Link format*"
+  to handle how the URL to file is created [keul]
 
 1.0.0 (2012-10-10)
 ------------------

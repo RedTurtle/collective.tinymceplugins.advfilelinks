@@ -89,7 +89,7 @@ function init() {
             }
 						
             if (href.indexOf('resolveuid') != -1) {
-
+				// Handle of possible suffix
 				var re = /.*\/?resolveuid\/\w+(\/\w+)/g;
 				var suffix = href.replace(re, "$1");
 				href = href.replace(suffix, '');
@@ -104,10 +104,18 @@ function init() {
                         getFolderListing(getParentUrl(current_url), 'tinymce-jsonlinkablefolderlisting', suffix);
                     }
                 });
-            } else {
+            } else {				
                 href = getAbsoluteUrl(tinyMCEPopup.editor.settings.document_base_url, href);
-                current_link = href;
-                getFolderListing(getParentUrl(href), 'tinymce-jsonlinkablefolderlisting');
+				var suffix = null;
+                tinymce.util.XHR.send({
+                    url : tinyMCEPopup.editor.settings.portal_url + '/@@deSuffix?url=' + href,
+                    type : 'GET',
+                    success : function(cleanHref) {
+						suffix = href.replace(cleanHref, '');
+                		current_link = cleanHref;
+		                getFolderListing(getParentUrl(cleanHref), 'tinymce-jsonlinkablefolderlisting', suffix);
+                    }
+                });
             }
         }
 
@@ -579,11 +587,9 @@ function setAllAttribs(elm) {
 
     var href = formGeneralObj.href.value;
 
-	var linkFormat = document.getElementById('link_format').options[document.getElementById('link_format').selectedIndex].value;
-	if (linkFormat=='download' && document.getElementById('tiny_download_suffix').innerHTML) {
-		href += document.getElementById('tiny_download_suffix').innerHTML;
-	} else if (linkFormat=='view' && document.getElementById('tiny_view_suffix').innerHTML) {
-		href += document.getElementById('tiny_view_suffix').innerHTML;
+	var linkFormat = document.getElementById('link_format').options[document.getElementById('link_format').selectedIndex];
+	if (linkFormat.value) {
+		href += linkFormat.value;
 	}
     var target = getSelectValue(formAdvancedObj, 'targetlist');
 
@@ -745,21 +751,28 @@ function setDetails(path, pageanchor, suffix) {
             else {
                 document.getElementById('tiny_extension').innerHTML = '';
             }
+			// file type suffixes
             if (data.suffixes.download) {
-                document.getElementById('tiny_download_suffix').innerHTML = data.suffixes.download;
+                document.getElementById('tiny_download_suffix').value = data.suffixes.download;
             }
             else {
                 document.getElementById('tiny_download_suffix').innerHTML = '';
             }
             if (data.suffixes.view) {
-                document.getElementById('tiny_view_suffix').innerHTML = data.suffixes.view;
+                document.getElementById('tiny_view_suffix').value = data.suffixes.view;
             }
             else {
                 document.getElementById('tiny_view_suffix').innerHTML = '';
             }
 			// link to file suffix
 			if (suffix) {
-				alert(suffix)
+				var linkFormat = document.getElementById('link_format');
+				for (var i=0; i<linkFormat.options.length; i++) {
+					if (linkFormat.options[i].value==suffix) {
+						linkFormat.options[i].selected = true;
+						break;
+					}
+				}
 			}
 
             if (data.anchors.length == 0) {
@@ -880,7 +893,7 @@ function getFolderListing(path, method, suffix) {
                         }
                     });
                 } else {
-                    setDetails(current_link, current_pageanchor);
+                    setDetails(current_link, current_pageanchor, suffix);
                 }
             }
         }
@@ -895,10 +908,6 @@ function uploadOk(ok_msg) {
 
 function uploadError(error_msg) {
     alert (error_msg);
-}
-
-function selectSuffix(suffix) {
-	alert(suffix);
 }
 
 // While loading

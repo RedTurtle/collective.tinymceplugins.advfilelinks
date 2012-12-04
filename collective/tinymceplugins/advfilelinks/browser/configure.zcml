@@ -15,4 +15,12 @@
         file="tiny_filetypes.css"
         />
 
+    <browser:page
+	    layer=".interfaces.ITinyMCEPluginLinkToFileLayer"
+	    for="Products.CMFCore.interfaces.ISiteRoot"
+	    name="deSuffix"
+		class=".view.RemoveSuffixView"
+		permission="zope2.View"
+	    />
+
 </configure>
