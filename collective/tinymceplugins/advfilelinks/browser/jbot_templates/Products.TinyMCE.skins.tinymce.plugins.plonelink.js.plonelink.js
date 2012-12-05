@@ -104,7 +104,7 @@ function init() {
                     success : function(text) {
                         current_url = getAbsoluteUrl(tinyMCEPopup.editor.settings.document_base_url, text);
                         current_link = href;
-                        getFolderListing(getParentUrl(current_url), 'tinymce-jsonlinkablefolderlisting', suffix);
+                        getFolderListing(getParentUrl(current_url), 'tinymce-jsonlinkablefolderlisting', suffix, true);
                     }
                 });
             } else {				
@@ -116,7 +116,7 @@ function init() {
                     success : function(cleanHref) {
 						suffix = href.replace(cleanHref, '');
                 		current_link = cleanHref;
-		                getFolderListing(getParentUrl(cleanHref), 'tinymce-jsonlinkablefolderlisting', suffix);
+		                getFolderListing(getParentUrl(cleanHref), 'tinymce-jsonlinkablefolderlisting', suffix, true);
                     }
                 });
             }
@@ -721,7 +721,7 @@ function displayPanel(elm_id) {
     document.getElementById ('upload_panel').style.display = elm_id == 'upload_panel' ? 'block' : 'none';
 }
 
-function setDetails(path, pageanchor, suffix) {
+function setDetails(path, pageanchor, suffix, onUpdate) {
     // Sends a low level Ajax request
     tinymce.util.XHR.send({
         url : path + '/tinymce-jsondetails',
@@ -767,6 +767,7 @@ function setDetails(path, pageanchor, suffix) {
             else {
                 document.getElementById('tiny_view_suffix').innerHTML = '';
             }
+
 			// link to file suffix
 			var linkFormat = document.getElementById('link_format');
 			if (suffix) {
@@ -776,7 +777,8 @@ function setDetails(path, pageanchor, suffix) {
 						break;
 					}
 				}
-			} else {
+			} else if (onUpdate) {
+				// default value for the combo is the first entry. Select last one only when explicitly set
 				linkFormat.options[linkFormat.options.length-1].selected = true;
 			}
 
@@ -813,7 +815,7 @@ function getCurrentFolderListing() {
     getFolderListing(tinyMCEPopup.editor.settings.document_base_url, 'tinymce-jsonlinkablefolderlisting'); 
 }
 
-function getFolderListing(path, method, suffix) {
+function getFolderListing(path, method, suffix, onUpdate) {
     // Sends a low level Ajax request
     tinymce.util.XHR.send({
         url : path + '/' + method,
@@ -894,11 +896,11 @@ function getFolderListing(path, method, suffix) {
                         type : 'GET',
                         success : function(text) {
                             current_url = getAbsoluteUrl(tinyMCEPopup.editor.settings.document_base_url, text);
-                            setDetails(current_url, current_pageanchor, suffix);
+                            setDetails(current_url, current_pageanchor, suffix, onUpdate);
                         }
                     });
                 } else {
-                    setDetails(current_link, current_pageanchor, suffix);
+                    setDetails(current_link, current_pageanchor, suffix, onUpdate);
                 }
             }
         }
