@@ -86,5 +86,5 @@ class ATImageDownloadSuffix(object):
     
     def __init__(self, context):
         self.context = context
-        self.download_suffix = '/at_download/file'
+        self.download_suffix = '/at_download/image'
         self.view_suffix = '/image_view_fullscreen'
