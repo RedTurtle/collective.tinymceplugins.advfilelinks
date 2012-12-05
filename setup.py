@@ -15,6 +15,7 @@ setup(name='collective.tinymceplugins.advfilelinks',
         "Framework :: Plone :: 3.3",
         "Framework :: Plone :: 4.0",
         "Framework :: Plone :: 4.1",
+        "Framework :: Plone :: 4.2",
         "Programming Language :: Python",
         "Programming Language :: JavaScript",
         ],
@@ -30,7 +31,7 @@ setup(name='collective.tinymceplugins.advfilelinks',
       install_requires=[
           'setuptools',
           'z3c.jbot',
-          'Products.TinyMCE',
+          'Products.TinyMCE<1.3dev',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
