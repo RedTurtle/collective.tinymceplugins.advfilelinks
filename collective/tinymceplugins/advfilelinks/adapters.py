@@ -80,3 +80,11 @@ class ATFileDownloadSuffix(object):
         self.download_suffix = '/at_download/file'
         self.view_suffix = None
 
+
+class ATImageDownloadSuffix(object):
+    implements(IFileSuffixes)
+    
+    def __init__(self, context):
+        self.context = context
+        self.download_suffix = '/at_download/file'
+        self.view_suffix = '/image_view_fullscreen'

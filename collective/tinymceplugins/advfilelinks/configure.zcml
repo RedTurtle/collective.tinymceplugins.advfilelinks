@@ -15,11 +15,21 @@
         provides="Products.TinyMCE.adapters.interfaces.JSONDetails.IJSONDetails"
         factory=".adapters.JSONDetails"
         />
+  <adapter
+        for="Products.ATContentTypes.interface.IATImage"
+        provides="Products.TinyMCE.adapters.interfaces.JSONDetails.IJSONDetails"
+        factory=".adapters.JSONDetails"
+        />
 
   <adapter
         for="Products.ATContentTypes.interface.IATFile"
         provides="collective.tinymceplugins.advfilelinks.interfaces.IFileSuffixes"
         factory=".adapters.ATFileDownloadSuffix"
+        />
+  <adapter
+        for="Products.ATContentTypes.interface.IATImage"
+        provides="collective.tinymceplugins.advfilelinks.interfaces.IFileSuffixes"
+        factory=".adapters.ATImageDownloadSuffix"
         />
 
   <genericsetup:registerProfile

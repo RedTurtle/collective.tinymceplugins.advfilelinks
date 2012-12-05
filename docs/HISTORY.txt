@@ -11,6 +11,7 @@ Changelog
 * Added link format inside advanced settings [keul]
 * Now supporting new advanced and pluggable option: "*Link format*"
   to handle how the URL to file is created [keul]
+* Added support for internal link to image content type [keul]
 
 1.0.0 (2012-10-10)
 ------------------
