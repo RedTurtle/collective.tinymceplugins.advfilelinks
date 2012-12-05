@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from zope.component.interfaces import ComponentLookupError
-
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 

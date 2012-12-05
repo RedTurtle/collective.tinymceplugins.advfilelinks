@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from Acquisition import aq_inner
 from elementtree import HTMLTreeBuilder
 
 try:
@@ -9,13 +8,8 @@ except:
     import simplejson as json
 
 from zope.interface import implements
-from zope.component import adapts
 from zope.component import getUtility
 from zope.component import queryAdapter
-
-from Products.CMFCore.interfaces._content import IContentish, IFolderish
-from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
-from Products.CMFCore.utils import getToolByName
 
 from Products.TinyMCE.interfaces.utility import ITinyMCE
 from Products.TinyMCE.adapters.interfaces.JSONDetails import IJSONDetails
