@@ -91,8 +91,11 @@ function init() {
             if (href.indexOf('resolveuid') != -1) {
 				// Handle of possible suffix
 				var re = /.*\/?resolveuid\/\w+(\/\w+)/g;
-				var suffix = href.replace(re, "$1");
-				href = href.replace(suffix, '');
+				var suffix = ''
+				if (re.test(href)) {
+					suffix = href.replace(re, "$1");
+					href = href.replace(suffix, '');					
+				}
 
                 current_uid = href.split('resolveuid/')[1];
                 tinymce.util.XHR.send({
@@ -765,14 +768,16 @@ function setDetails(path, pageanchor, suffix) {
                 document.getElementById('tiny_view_suffix').innerHTML = '';
             }
 			// link to file suffix
+			var linkFormat = document.getElementById('link_format');
 			if (suffix) {
-				var linkFormat = document.getElementById('link_format');
 				for (var i=0; i<linkFormat.options.length; i++) {
 					if (linkFormat.options[i].value==suffix) {
 						linkFormat.options[i].selected = true;
 						break;
 					}
 				}
+			} else {
+				linkFormat.options[linkFormat.options.length-1].selected = true;
 			}
 
             if (data.anchors.length == 0) {

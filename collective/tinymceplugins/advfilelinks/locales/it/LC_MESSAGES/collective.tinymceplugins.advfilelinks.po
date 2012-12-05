@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-12-04 11:57+0000\n"
+"POT-Creation-Date: 2012-12-05 13:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.it>\n"
@@ -29,7 +29,7 @@ msgstr "Estensione file"
 msgid "File type"
 msgstr "Tipo di file"
 
-#: ../browser/jbot_templates/Products.TinyMCE.skins.tinymce.plugins.plonelink.plonelink.htm.pt:298
+#: ../browser/jbot_templates/Products.TinyMCE.skins.tinymce.plugins.plonelink.plonelink.htm.pt:294
 msgid "Link format"
 msgstr "Formato del link"
 
@@ -41,13 +41,18 @@ msgstr "Dimensione"
 msgid "TinyMCE: alternative links to files plugin"
 msgstr "TinyMCE: plugin alternativo per link a file"
 
-#. Default: "Link to download content"
+#. Default: "Direct link to content"
 #: ../browser/jbot_templates/Products.TinyMCE.skins.tinymce.plugins.plonelink.plonelink.htm.pt:301
+msgid "plonelink_base"
+msgstr "Link diretto al contenuto"
+
+#. Default: "Link to download content"
+#: ../browser/jbot_templates/Products.TinyMCE.skins.tinymce.plugins.plonelink.plonelink.htm.pt:297
 msgid "plonelink_download"
 msgstr "Link per scaricare il contenuto"
 
 #. Default: "Link to content's preview"
-#: ../browser/jbot_templates/Products.TinyMCE.skins.tinymce.plugins.plonelink.plonelink.htm.pt:302
+#: ../browser/jbot_templates/Products.TinyMCE.skins.tinymce.plugins.plonelink.plonelink.htm.pt:299
 msgid "plonelink_preview"
 msgstr "Link all'anteprima del contenuto"
 

@@ -298,6 +298,8 @@
                       value="" i18n:translate="plonelink_download">Link to download content</option>
               <option id="tiny_view_suffix"
                       value="" i18n:translate="plonelink_preview">Link to content's preview</option>
+              <option id="tiny_nosuffix"
+                      value="" i18n:translate="plonelink_base">Direct link to content</option>
             </select>
           </div>
         </div>
