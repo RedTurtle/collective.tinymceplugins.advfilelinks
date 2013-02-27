@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from zope.component import getMultiAdapter
+from zope.component import ComponentLookupError
+
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 
@@ -21,9 +24,9 @@ class RemoveSuffixView(BrowserView):
         while (obj != portal):
             obj = portal.restrictedTraverse(path[1:], default=None)
             try:
-                IFileSuffixes(obj)
+                getMultiAdapter((obj, request), IFileSuffixes)
                 return obj.absolute_url()
-            except TypeError:
+            except ComponentLookupError:
                 pass
             
             path = '/'.join(path.split('/')[:-1])

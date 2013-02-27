@@ -9,7 +9,7 @@ except:
 
 from zope.interface import implements
 from zope.component import getUtility
-from zope.component import queryAdapter
+from zope.component import queryMultiAdapter
 
 from Products.TinyMCE.interfaces.utility import ITinyMCE
 from Products.TinyMCE.adapters.interfaces.JSONDetails import IJSONDetails
@@ -64,7 +64,7 @@ class JSONDetails(object):
         results['size'] = context.getObjSize()
         results['extension'] = extension
 
-        suffix_provider = queryAdapter(context, interface=IFileSuffixes)
+        suffix_provider = queryMultiAdapter((context, context.REQUEST), interface=IFileSuffixes)
         results['suffixes'] = {}
         results['suffixes']['download'] = suffix_provider and suffix_provider.download_suffix or None
         results['suffixes']['view'] = suffix_provider and suffix_provider.view_suffix or '/view'
@@ -76,8 +76,9 @@ class JSONDetails(object):
 class ATFileDownloadSuffix(object):
     implements(IFileSuffixes)
     
-    def __init__(self, context):
+    def __init__(self, context, request):
         self.context = context
+        self.request = request
         self.download_suffix = '/at_download/file'
         self.view_suffix = None
         self.default_suffix = 2
@@ -86,8 +87,9 @@ class ATFileDownloadSuffix(object):
 class ATImageDownloadSuffix(object):
     implements(IFileSuffixes)
     
-    def __init__(self, context):
+    def __init__(self, context, request):
         self.context = context
+        self.request = request
         self.download_suffix = '/at_download/image'
         self.view_suffix = '/image_view_fullscreen'
         self.default_suffix = 3

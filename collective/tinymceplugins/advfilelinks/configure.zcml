@@ -22,12 +22,14 @@
         />
 
   <adapter
-        for="Products.ATContentTypes.interface.IATFile"
+        for="Products.ATContentTypes.interface.IATFile
+		     zope.publisher.interfaces.browser.IHTTPRequest"
         provides="collective.tinymceplugins.advfilelinks.interfaces.IFileSuffixes"
         factory=".adapters.ATFileDownloadSuffix"
         />
   <adapter
-        for="Products.ATContentTypes.interface.IATImage"
+        for="Products.ATContentTypes.interface.IATImage
+		     zope.publisher.interfaces.browser.IHTTPRequest"
         provides="collective.tinymceplugins.advfilelinks.interfaces.IFileSuffixes"
         factory=".adapters.ATImageDownloadSuffix"
         />
