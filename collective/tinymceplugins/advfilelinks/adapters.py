@@ -68,6 +68,7 @@ class JSONDetails(object):
         results['suffixes'] = {}
         results['suffixes']['download'] = suffix_provider and suffix_provider.download_suffix or None
         results['suffixes']['view'] = suffix_provider and suffix_provider.view_suffix or '/view'
+        results['suffixes']['default_suffix'] = suffix_provider and suffix_provider.default_suffix or 1
 
         return json.dumps(results)
 
@@ -79,6 +80,7 @@ class ATFileDownloadSuffix(object):
         self.context = context
         self.download_suffix = '/at_download/file'
         self.view_suffix = None
+        self.default_suffix = 2
 
 
 class ATImageDownloadSuffix(object):
@@ -88,3 +90,4 @@ class ATImageDownloadSuffix(object):
         self.context = context
         self.download_suffix = '/at_download/image'
         self.view_suffix = '/image_view_fullscreen'
+        self.default_suffix = 3

@@ -11,3 +11,5 @@ class IFileSuffixes(Interface):
     
     download_suffix = Attribute("""Download suffix to be used for generate a download link to this content""")
     view_suffix = Attribute("""View suffix to be used for generate a preview link to this content""")
+    default_suffix = Attribute("""Default view suffix to be used""")
+

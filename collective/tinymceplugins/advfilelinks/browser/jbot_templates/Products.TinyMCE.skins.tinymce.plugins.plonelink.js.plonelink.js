@@ -87,15 +87,15 @@ function init() {
                 current_pageanchor = href.split('#')[1];
                 href = href.split('#')[0];
             }
-						
+                        
             if (href.indexOf('resolveuid') != -1) {
-				// Handle of possible suffix
-				var re = /.*\/?resolveuid\/\w+(\/\w+)/g;
-				var suffix = ''
-				if (re.test(href)) {
-					suffix = href.replace(re, "$1");
-					href = href.replace(suffix, '');					
-				}
+                // Handle of possible suffix
+                var re = /.*\/?resolveuid\/\w+(\/\w+)/g;
+                var suffix = ''
+                if (re.test(href)) {
+                    suffix = href.replace(re, "$1");
+                    href = href.replace(suffix, '');                    
+                }
 
                 current_uid = href.split('resolveuid/')[1];
                 tinymce.util.XHR.send({
@@ -107,16 +107,16 @@ function init() {
                         getFolderListing(getParentUrl(current_url), 'tinymce-jsonlinkablefolderlisting', suffix, true);
                     }
                 });
-            } else {				
+            } else {                
                 href = getAbsoluteUrl(tinyMCEPopup.editor.settings.document_base_url, href);
-				var suffix = null;
+                var suffix = null;
                 tinymce.util.XHR.send({
                     url : tinyMCEPopup.editor.settings.portal_url + '/@@deSuffix?url=' + href,
                     type : 'GET',
                     success : function(cleanHref) {
-						suffix = href.replace(cleanHref, '');
-                		current_link = cleanHref;
-		                getFolderListing(getParentUrl(cleanHref), 'tinymce-jsonlinkablefolderlisting', suffix, true);
+                        suffix = href.replace(cleanHref, '');
+                        current_link = cleanHref;
+                        getFolderListing(getParentUrl(cleanHref), 'tinymce-jsonlinkablefolderlisting', suffix, true);
                     }
                 });
             }
@@ -590,10 +590,10 @@ function setAllAttribs(elm) {
 
     var href = formGeneralObj.href.value;
 
-	var linkFormat = document.getElementById('link_format').options[document.getElementById('link_format').selectedIndex];
-	if (linkFormat.value) {
-		href += linkFormat.value;
-	}
+    var linkFormat = document.getElementById('link_format').options[document.getElementById('link_format').selectedIndex];
+    if (linkFormat.value) {
+        href += linkFormat.value;
+    }
     var target = getSelectValue(formAdvancedObj, 'targetlist');
 
     if (target == 'popup') {
@@ -754,7 +754,18 @@ function setDetails(path, pageanchor, suffix, onUpdate) {
             else {
                 document.getElementById('tiny_extension').innerHTML = '';
             }
-			// file type suffixes
+            
+            // default link type
+            if (data.suffixes.default_suffix===2) {
+                document.getElementById('tiny_download_suffix').selected = true;
+            }
+            else if (data.suffixes.default_suffix===3) {
+                document.getElementById('tiny_view_suffix').selected = true;
+            } else {
+                document.getElementById('tiny_nosuffix').selected = true;
+            }
+            
+            // file type suffixes
             if (data.suffixes.download) {
                 document.getElementById('tiny_download_suffix').value = data.suffixes.download;
             }
@@ -767,20 +778,20 @@ function setDetails(path, pageanchor, suffix, onUpdate) {
             else {
                 document.getElementById('tiny_view_suffix').innerHTML = '';
             }
-
-			// link to file suffix
-			var linkFormat = document.getElementById('link_format');
-			if (suffix) {
-				for (var i=0; i<linkFormat.options.length; i++) {
-					if (linkFormat.options[i].value==suffix) {
-						linkFormat.options[i].selected = true;
-						break;
-					}
-				}
-			} else if (onUpdate) {
-				// default value for the combo is the first entry. Select last one only when explicitly set
-				linkFormat.options[linkFormat.options.length-1].selected = true;
-			}
+            // link to file suffix
+            var linkFormat = document.getElementById('link_format');
+            if (suffix) {
+                for (var i=0; i<linkFormat.options.length; i++) {
+                    if (linkFormat.options[i].value==suffix) {
+                        linkFormat.options[i].selected = true;
+                        break;
+                    }
+                }
+            } else if (onUpdate) {
+                // default value for the combo depends from type's default.
+                // Select first emtpy value only when explicitly set
+                linkFormat.options[0].selected = true;
+            }
 
             if (data.anchors.length == 0) {
                 document.getElementById ('pageanchorcontainer').style.display = 'none';
