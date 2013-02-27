@@ -61,7 +61,7 @@ This plugin will add a new control inside advanced settings:
    
    The "Link format" option, inside advanced settings
 
-Playing with those options can change the format of the generated link, addind a suffix to it.
+Playing with those options can change the format of the generated link, adding a suffix to it.
 
 *Link to download content* (default)
     Force the download of the file (or image)
@@ -75,7 +75,7 @@ Most of the time in Plone calling ``url/to/a/file`` is like calling ``url/to/a/f
 an explicit ``at_download/file`` sometimes the target file can be opened by browser plugins (expecially common for
 images, where ``url/to/an/image`` will open the image in the browser).
 
-The "*Link to content' preview*" cab ne used to create links that are not opening the attachment, but move user to
+The "*Link to content' preview*" can ne used to create links that are not opening the attachment, but move user to
 the Plone content.
 
 Dependencies
@@ -87,7 +87,7 @@ This product has been tested with:
 * Plone 4.2.2 and TinyMCE 1.2.12
 
 .. Warning::
-    This product will **not work** on Plone 4.3 or on other Plone sitesversions that use
+    This product will **not work** on Plone 4.3 or on every other Plone versions that use
     Products.TinyMCE 1.3 or better.
     
     Products.TinyMCE 1.3 has been rewritten from scratch.
