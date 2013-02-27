@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.1.1 (unreleased)
+1.2.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Restored the default TinyMCE link suffix as default [keul]
 
 1.1.0 (2012-12-05)
 ------------------
