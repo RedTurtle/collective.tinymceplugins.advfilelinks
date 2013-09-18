@@ -4,8 +4,9 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Fixed a JavaScript error when referencing non-file contents [keul]
+- Do not display the additional file's information when not
+  referencing file types [keul]
 
 1.2.0 (2013-02-27)
 ------------------

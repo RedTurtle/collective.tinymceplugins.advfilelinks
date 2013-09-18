@@ -756,42 +756,47 @@ function setDetails(path, pageanchor, suffix, onUpdate) {
             }
             
             // default link type
-            if (data.suffixes.default_suffix===2) {
-                document.getElementById('tiny_download_suffix').selected = true;
-            }
-            else if (data.suffixes.default_suffix===3) {
-                document.getElementById('tiny_view_suffix').selected = true;
-            } else {
-                document.getElementById('tiny_nosuffix').selected = true;
-            }
-            
-            // file type suffixes
-            if (data.suffixes.download) {
-                document.getElementById('tiny_download_suffix').value = data.suffixes.download;
-            }
-            else {
-                document.getElementById('tiny_download_suffix').innerHTML = '';
-            }
-            if (data.suffixes.view) {
-                document.getElementById('tiny_view_suffix').value = data.suffixes.view;
-            }
-            else {
-                document.getElementById('tiny_view_suffix').innerHTML = '';
-            }
-            // link to file suffix
-            var linkFormat = document.getElementById('link_format');
-            if (suffix) {
-                for (var i=0; i<linkFormat.options.length; i++) {
-                    if (linkFormat.options[i].value==suffix) {
-                        linkFormat.options[i].selected = true;
-                        break;
-                    }
+            if (data.suffixes) {
+				document.getElementById('file_type_infos').style.display = 'block';
+                if (data.suffixes.default_suffix===2) {
+                    document.getElementById('tiny_download_suffix').selected = true;
                 }
-            } else if (onUpdate) {
-                // default value for the combo depends from type's default.
-                // Select first emtpy value only when explicitly set
-                linkFormat.options[0].selected = true;
-            }
+                else if (data.suffixes.default_suffix===3) {
+                    document.getElementById('tiny_view_suffix').selected = true;
+                } else {
+                    document.getElementById('tiny_nosuffix').selected = true;
+                }
+                
+                // file type suffixes
+                if (data.suffixes.download) {
+                    document.getElementById('tiny_download_suffix').value = data.suffixes.download;
+                }
+                else {
+                    document.getElementById('tiny_download_suffix').innerHTML = '';
+                }
+                if (data.suffixes.view) {
+                    document.getElementById('tiny_view_suffix').value = data.suffixes.view;
+                }
+                else {
+                    document.getElementById('tiny_view_suffix').innerHTML = '';
+                }
+                // link to file suffix
+                var linkFormat = document.getElementById('link_format');
+                if (suffix) {
+                    for (var i=0; i<linkFormat.options.length; i++) {
+                        if (linkFormat.options[i].value==suffix) {
+                            linkFormat.options[i].selected = true;
+                            break;
+                        }
+                    }
+                } else if (onUpdate) {
+                    // default value for the combo depends from type's default.
+                    // Select first emtpy value only when explicitly set
+                    linkFormat.options[0].selected = true;
+                }
+            } else {
+				document.getElementById('file_type_infos').style.display = 'none';
+			}
 
             if (data.anchors.length == 0) {
                 document.getElementById ('pageanchorcontainer').style.display = 'none';

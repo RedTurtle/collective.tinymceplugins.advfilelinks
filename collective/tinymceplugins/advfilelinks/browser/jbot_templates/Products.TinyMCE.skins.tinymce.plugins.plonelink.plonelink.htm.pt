@@ -86,18 +86,20 @@
               </select>
             </div>
           </div>
-          <div id="info_tiny_filetype">
-              <strong i18n:domain="collective.tinymceplugins.advfilelinks" i18n:translate="">File type</strong>
-            <span id="tiny_filetype"></span>
-          </div>
-          <div id="info_tiny_filesize">
-              <strong i18n:domain="collective.tinymceplugins.advfilelinks" i18n:translate="">Size</strong>
-            <span id="tiny_filesize"></span>
-          </div>
-          <div id="info_tiny_extension">
-              <strong i18n:domain="collective.tinymceplugins.advfilelinks" i18n:translate="">File extension</strong>
-            <span id="tiny_extension"></span>
-          </div>
+		  <div id="file_type_infos" style="display:none">
+	          <div id="info_tiny_filetype">
+	              <strong i18n:domain="collective.tinymceplugins.advfilelinks" i18n:translate="">File type</strong>
+	            <span id="tiny_filetype"></span>
+	          </div>
+	          <div id="info_tiny_filesize">
+	              <strong i18n:domain="collective.tinymceplugins.advfilelinks" i18n:translate="">Size</strong>
+	            <span id="tiny_filesize"></span>
+	          </div>
+	          <div id="info_tiny_extension">
+	              <strong i18n:domain="collective.tinymceplugins.advfilelinks" i18n:translate="">File extension</strong>
+	            <span id="tiny_extension"></span>
+	          </div>
+		</div>
         </fieldset>
 
         <fieldset id="external_panel" class="subPanel column">
