@@ -88,22 +88,22 @@ What you need is to provide a new adapter for the ``IFileSuffixes`` interface::
 
   <adapter
         for="your.package.content.IYourVideoType
-		     zope.publisher.interfaces.browser.IHTTPRequest"
+             zope.publisher.interfaces.browser.IHTTPRequest"
         provides="collective.tinymceplugins.advfilelinks.interfaces.IFileSuffixes"
         factory=".adapters.YourVideoTypeDownloadSuffix"
         />
 
 The provide the Python adapter code::
 
-	class YourVideoTypeDownloadSuffix(object):
-    	implements(IFileSuffixes)
-	
-    	def __init__(self, context, request):
-	        self.context = context
-	        self.request = request
-	        self.download_suffix = '/video_download'
-	        self.view_suffix = '/preview_video'
-	        self.default_suffix = 2
+    class YourVideoTypeDownloadSuffix(object):
+        implements(IFileSuffixes)
+    
+        def __init__(self, context, request):
+            self.context = context
+            self.request = request
+            self.download_suffix = '/video_download'
+            self.view_suffix = '/preview_video'
+            self.default_suffix = 2
 
 You can provide three options:
 
@@ -136,6 +136,17 @@ This product has been tested with:
     Products.TinyMCE 1.3 or better. Sorry... maybe in future!
     
     Why? Products.TinyMCE 1.3 has been rewritten from scratch.
+
+Internet Explorer 9 users
+-------------------------
+
+Products.TinyMCE 1.2 and below suffer of knows problems with IE version 9 (and above).
+Those problems have ben fixed in Products.TinyMCE 1.3 but, as said above, this plugin will
+not work on version 1.3.
+
+Instead of upgrade you can then apply one of the `knows workarounds`__.
+
+__ http://dev.plone.org/ticket/11690
 
 Credits
 =======
