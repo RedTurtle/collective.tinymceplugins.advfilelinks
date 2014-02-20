@@ -64,6 +64,16 @@ a[type='application/vnd.ms-powerpoint'] {
     padding-left: 20px;
 }
 
+a[type="text/comma-separated-values"] {
+    background: url("++resource++collective.tinymceplugins.advfilelinks.resources/csv.png") no-repeat scroll 0 50% rgba(0, 0, 0, 0);
+    padding-left: 20px;
+}
+
+a[type="application/vnd.oasis.opendocument.spreadsheet"] {
+    background: url("++resource++collective.tinymceplugins.advfilelinks.resources/ods.png") no-repeat scroll 0 50% rgba(0, 0, 0, 0);
+    padding-left: 20px;
+}
+
 a[type='image/jpeg'],
 a[type='image/pjpeg'],
 a[type='image/gif'],
