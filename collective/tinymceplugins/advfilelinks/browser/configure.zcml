@@ -15,11 +15,6 @@
         file="tiny_filetypes.css"
         />
 
-    <browser:resource
-	    layer=".interfaces.ITinyMCEPluginLinkToFileLayer"
-        name="tiny_filetypes.css"
-        file="tiny_filetypes.css"
-        />
     <browser:resourceDirectory
         name="collective.tinymceplugins.advfilelinks.resources"
         directory="resources"
