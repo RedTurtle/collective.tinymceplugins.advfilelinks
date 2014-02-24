@@ -1,11 +1,11 @@
 Changelog
 =========
 
-1.2.2 (unreleased)
+1.3.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- New CSV and OpenOffice support [giacomos, keul]
+- Default icon for unknow file [giacomos, keul]
 
 1.2.1 (2013-09-18)
 ------------------

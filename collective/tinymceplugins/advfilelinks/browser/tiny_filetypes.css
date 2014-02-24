@@ -5,7 +5,7 @@ a.internal-link-tofile:after {
 }
 
 a.internal-link-tofile {
-    background: url(application.png) no-repeat 0 50%;
+    background: url(file_icon.png) no-repeat 0 50%;
     padding-left: 20px;
 }
 
@@ -14,31 +14,15 @@ a[type='application/pdf'] {
     padding-left: 20px;
 }
 
-a[type='application/doc'] {
-    background: url(doc.png) no-repeat 0 50%;
-    padding-left: 20px;
-}
-
-a[type='application/msword'] {
-    background: url(doc.png) no-repeat 0 50%;
-    padding-left: 20px;
-}
-
+a[type='application/doc'],
+a[type='application/msword'],
 a[type='application/x-mspublisher'] {
     background: url(doc.png) no-repeat 0 50%;
     padding-left: 20px;
 }
 
-a[type='application/zip'] {
-    background: url(zip.png) no-repeat 0 50%;
-    padding-left: 20px;
-}
-
-a[type='application/x-compressed'] {
-    background: url(zip.png) no-repeat 0 50%;
-    padding-left: 20px;
-}
-
+a[type='application/zip'],
+a[type='application/x-compressed'],
 a[type='application/x-tar'] {
     background: url(zip.png) no-repeat 0 50%;
     padding-left: 20px;
@@ -49,37 +33,50 @@ a[type='application/rtf'] {
     padding-left: 20px;
 }
 
-a[type='application/xls'] {
-    background: url(xls.png) no-repeat 0 50%;
-    padding-left: 20px;
-}
-
+a[type='application/xls'],
 a[type='application/vnd.ms-excel'] {
     background: url(xls.png) no-repeat 0 50%;
     padding-left: 20px;
 }
 
-a[type='application/ppt'] {
-    background: url(ppt.png) no-repeat 0 50%;
-    padding-left: 20px;
-}
-
+a[type='application/ppt'],
 a[type='application/vnd.ms-powerpoint'] {
     background: url(ppt.png) no-repeat 0 50%;
     padding-left: 20px;
 }
 
-a[type="text/comma-separated-values"] {
-    background: url("++resource++collective.tinymceplugins.advfilelinks.resources/csv.png") no-repeat scroll 0 50% rgba(0, 0, 0, 0);
+a[type='application/vnd.oasis.opendocument.presentation'],
+a[type='application/x-vnd.oasis.opendocument.presentation'] {
+    background: url(odp.png) no-repeat 0 50%;
     padding-left: 20px;
 }
 
-a[type="application/vnd.oasis.opendocument.spreadsheet"] {
-    background: url("++resource++collective.tinymceplugins.advfilelinks.resources/ods.png") no-repeat scroll 0 50% rgba(0, 0, 0, 0);
+a[type="text/comma-separated-values"],
+a[type="text/csv"] {
+    background: url("++resource++collective.tinymceplugins.advfilelinks.resources/csv.png") no-repeat scroll 0 50%;
+    padding-left: 20px;
+}
+
+a[type="application/vnd.oasis.opendocument.text"],
+a[type="application/x-vnd.oasis.opendocument.text"] {
+    background: url("++resource++collective.tinymceplugins.advfilelinks.resources/odt.png") no-repeat scroll 0 50%;
+    padding-left: 20px;
+}
+
+a[type="application/vnd.oasis.opendocument.spreadsheet"],
+a[type="application/x-vnd.oasis.opendocument.spreadsheet"] {
+    background: url("++resource++collective.tinymceplugins.advfilelinks.resources/ods.png") no-repeat scroll 0 50%;
+    padding-left: 20px;
+}
+
+a[type="application/vnd.oasis.opendocument.graphics"],
+a[type="application/x-vnd.oasis.opendocument.graphics"] {
+    background: url("++resource++collective.tinymceplugins.advfilelinks.resources/odg.png") no-repeat scroll 0 50%;
     padding-left: 20px;
 }
 
 a[type='image/jpeg'],
+a[type='image/jpg'],
 a[type='image/pjpeg'],
 a[type='image/gif'],
 a[type='image/png'] {
