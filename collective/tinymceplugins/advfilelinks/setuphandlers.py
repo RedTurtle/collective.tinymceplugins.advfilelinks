@@ -14,4 +14,5 @@ def migrateTo_1_3_0(context):
     setup_tool = getToolByName(context, 'portal_setup')
     setup_tool.runAllImportStepsFromProfile('profile-collective.mtrsetup:default')
     setup_tool.runAllImportStepsFromProfile('profile-collective.mtrsetup:example')
+    setup_tool.runImportStepFromProfile('profile-collective.tinymceplugins.advfilelinks:default', 'mimetypes')
     logger.info("Migrated to version 1.3.0")
