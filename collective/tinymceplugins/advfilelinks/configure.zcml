@@ -9,6 +9,8 @@
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
 
+  <include package="collective.mtrsetup" />
+
   <include package=".browser" />
   <adapter
         for="Products.ATContentTypes.interface.IATFile"

@@ -32,6 +32,7 @@ setup(name='collective.tinymceplugins.advfilelinks',
           'setuptools',
           'z3c.jbot',
           'Products.TinyMCE<1.3dev',
+          'collective.mtrsetup',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

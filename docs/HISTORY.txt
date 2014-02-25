@@ -4,8 +4,12 @@ Changelog
 1.3.0 (unreleased)
 ------------------
 
-- New CSV and OpenOffice support [giacomos, keul]
+- Now depends on `collective.mtrsetup`__ to support also
+  a lot of additional mime types [keul]
+- New CSV support [giacomos, keul]
 - Default icon for unknow file [giacomos, keul]
+
+__ https://pypi.python.org/pypi/collective.mtrsetup
 
 1.2.1 (2013-09-18)
 ------------------

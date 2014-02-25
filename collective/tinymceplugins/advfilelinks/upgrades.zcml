@@ -23,4 +23,14 @@
         profile="collective.tinymceplugins.advfilelinks:default"
     />
 
+  <genericsetup:upgradeStep
+        title="Upgrade collective.tinymceplugins.advfilelinks version 1.3.0"
+        description="Upgrade collective.tinymceplugins.advfilelinks to version 1.3.0"
+        source="1000"
+        destination="1010"
+        handler=".setuphandlers.migrateTo_1_3_0"
+        sortkey="2"
+        profile="collective.tinymceplugins.advfilelinks:default"
+    />
+
 </configure>
