@@ -6,6 +6,9 @@ Changelog
 
 - Fixed CSV icon (similar to `pull request #2`__
   on collective.mtrsetup)
+  [keul]
+- Support for *odp* file
+  [keul]
 
 __ https://github.com/collective/collective.mtrsetup/pull/2
 
