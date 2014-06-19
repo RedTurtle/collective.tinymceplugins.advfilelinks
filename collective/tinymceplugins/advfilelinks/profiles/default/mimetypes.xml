@@ -5,7 +5,7 @@
                        text/csv"
             extensions="csv"
             globs="*.csv"
-            icon_path="/++resource++collective.tinymceplugins.advfilelinks.resources/csv.png"
-            binary="True"
+            icon_path="++resource++collective.tinymceplugins.advfilelinks.resources/csv.png"
+            binary="False"
             />
 </object>
