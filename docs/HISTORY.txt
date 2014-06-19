@@ -5,8 +5,11 @@ Changelog
 ------------------
 
 - Fixed CSV icon (similar to `pull request #2`__ on collective.mtrsetup)
+  and setted as non-binary
   [keul]
 - Support for *odp* file
+  [keul]
+- Changed icon for *zip* and *rar*
   [keul]
 
 __ https://github.com/collective/collective.mtrsetup/pull/2
