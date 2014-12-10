@@ -4,8 +4,11 @@ Changelog
 1.3.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Ported a bugfix closed in the original TinyMCE file plugin.
+  See `@0082163c6d`__ 
+  [keul]
 
+__ https://github.com/plone/Products.TinyMCE/commit/0082163c6d4ccdd5b4f55e330807297999030b8f
 
 1.3.1 (2014-06-20)
 ------------------
