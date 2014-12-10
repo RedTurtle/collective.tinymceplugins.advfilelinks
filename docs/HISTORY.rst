@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.3.2 (unreleased)
+1.3.2 (2014-12-10)
 ------------------
 
 - Ported a bugfix closed in the original TinyMCE file plugin.
